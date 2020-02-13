@@ -1,0 +1,80 @@
+html, body {
+    height: 100%;
+ }
+ body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+ }
+ #container {
+    display: flex;
+    min-height: 100%;
+ }
+ input[type=checkbox] {
+    position: absolute;
+    opacity: 0;
+ }
+ label {
+    position: absolute; 
+    top: 20px;
+    left: 0px;
+    z-index: 1;
+    display: block;
+    font-size: 3em;
+    color: #444;
+    cursor: pointer;
+    transform: translate3d(0, 0, 0);
+    transition: transform .4s;
+ }
+ input[type=checkbox]:checked ~ label {
+    transform: translate3d(250px, 0, 0) rotate(90deg);
+ }
+ .content {
+    width:100%;
+    padding: 20px;
+    background: #dedfeb;
+    transform: translate3d(0, 0, 0);
+    transition: transform .4s;
+ }
+ input[type=checkbox]:checked ~ .content {
+    transform: translate3d(250px, 0, 0);
+ }
+ input[type=checkbox]:checked ~ .slide-menu {
+    transform: translate3d(0, 0, 0);
+ }
+ input[type=checkbox]:checked ~ .slide-menu .menu li {
+    width: 100%;
+ }
+ .slide-menu {
+    transform: translate3d(-250px, 0, 0);
+    position: absolute;
+    width: 250px;
+    background: rgba(255, 255, 255, 0.5);
+    color: #ddd;
+    left: 0;
+    height: 100%;
+    transition: all .4s;
+ }
+ .slide-menu h1 {
+    margin: 10px;
+    text-shadow: 1px 1px 1px #000;
+ }
+ .menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+ }
+ .menu a {
+    display: block;
+    text-decoration: none;
+    color: #000;
+    font-size: 1.1em;
+    padding: 15px;
+    background: linear-gradient(#ffffff, #dedfeb);
+    border-bottom: 1px solid #1e222b;
+    box-shadow: inset 0px 1px 1px #8b9db3;
+ }
+ .menu a:hover {
+    background: linear-gradient(#DEDFEB, #3c434d);
+    box-shadow: inset 0px 1px 1px #475059;
+ }
