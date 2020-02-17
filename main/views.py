@@ -1,5 +1,8 @@
 from django.shortcuts import render
+from .models import Post #from models file in current package
 
+
+# dummy data from the tutorial, ineffective way of doing this
 posts = [
     {
         'author': 'CoreyMS',
@@ -18,7 +21,8 @@ posts = [
 
 def home(request):
     context = {
-        'posts': posts
+        # 'posts': posts
+        'posts': Post.objects.all()
     }
     return render(request, 'main/home.html', context)
 

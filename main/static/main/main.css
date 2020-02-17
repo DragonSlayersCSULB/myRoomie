@@ -1,5 +1,7 @@
 body {
-  background: #fafafa;
+  background-image: url("https://static.vecteezy.com/system/resources/previews/000/134/509/original/free-vector-livingroom.jpg");
+  background-size: 75%;
+  background-blend-mode: darken;
   color: #333333;
   margin-top: 5rem;
 }
@@ -7,13 +9,16 @@ body {
 h1, h2, h3, h4, h5, h6 {
   color: #444444;
 }
+h2 {
+  font-size: 1em;
+}
 
 ul {
   margin: 0;
 }
 
 .bg-steel {
-  background-color: #5f788a;
+  background-color: #dedfeb;
 }
 
 .site-header .navbar-nav .nav-link {
@@ -28,12 +33,45 @@ ul {
   font-weight: 500;
 }
 
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #dedfeb;
+  color: black;
+  text-align: right;
+  font-weight: bold;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  padding: 10px 20px;
+}
+
+
 .content-section {
-  background: #ffffff;
+  background: #dedfeb;
   padding: 10px 20px;
   border: 1px solid #dddddd;
   border-radius: 3px;
   margin-bottom: 20px;
+}
+
+.weather {
+  float: left;
+  background: #dedfeb;
+  padding: 10px 20px;
+  border: 1px solid #dddddd;
+  border-radius: 3px;
+  margin-bottom: 50px;
+  width:20%;
+}
+
+.roommate-tracker {
+  float: left;
+  background: #dedfeb;
+  padding: 10px 20px;
+  border: 1px solid #dddddd;
+  border-radius: 3px;
+  margin-bottom: 50px;
 }
 
 .article-title {
@@ -47,6 +85,7 @@ a.article-title:hover {
 
 .article-content {
   white-space: pre-line;
+  background: #ffff;
 }
 
 .article-img {
