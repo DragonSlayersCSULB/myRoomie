@@ -29,3 +29,6 @@ def home(request):
 
 def about(request):
     return render(request, 'main/about.html', {'title': 'About'})
+
+def payments(request):
+    return render(request, 'main/payments.html', {'title': 'Payments'})
