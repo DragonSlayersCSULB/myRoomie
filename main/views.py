@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import Post #from models file in current package
+from .models import Bills #from models file in current package
 
 
 # dummy data from the tutorial, ineffective way of doing this
@@ -30,5 +31,8 @@ def home(request):
 def about(request):
     return render(request, 'main/about.html', {'title': 'About'})
 
-def payments(request):
-    return render(request, 'main/payments.html', {'title': 'Payments'})
+def bills(request):
+    context = {
+        'bills': Bills.objects.all()
+    }
+    return render(request, 'main/bills.html', context)
