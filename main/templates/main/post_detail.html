@@ -1,0 +1,33 @@
+<!-- Home.html -->`
+  <div class="container">
+  <div class="weather">
+    <p><h2>Hello, Name.</p></h2>
+    <p>Todays date is: date here</p>
+    <a class="weatherwidget-io" href="https://forecast7.com/en/33d77n118d19/long-beach/?unit=us" data-label_1="LONG BEACH" data-label_2="WEATHER" data-mode="Current" data-days="3" data-theme="pure" >LONG BEACH WEATHER</a>
+    <script>
+    !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
+    </script>
+  <div class="roommate-tracker">
+    Here is where the roommate tracker will go
+  </div>
+  </div>
+
+{% extends "main/base.html" %}
+{% block content %}
+    <article class="media content-section">
+      <img class="rounded-circle article-img"  src="{{ object.author.profile.image.url }}">
+      <div class="media-body">
+        <div class="article-metadata">
+          <a class="mr-2" href="#">{{ object.author }}</a>
+          <small class="text-muted">{{ object.date_posted }}</small>
+          {% if object.author == user %}
+            <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'post-update' object.id %}">Update</a>
+            <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'post-delete' object.id %}">Delete</a>
+          {% endif %}
+        </div>
+        <h2 class="article-title">{{ object.title }}</h2>
+        <p class="article-content">{{ object.content }}</p>
+      </div>
+    </article>
+{% endblock content %}
+</div>

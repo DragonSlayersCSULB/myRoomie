@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
+from django.urls import reverse
 
 class Post(models.Model):
     title = models.CharField(max_length=100)
@@ -9,6 +10,7 @@ class Post(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE) ## (argument)if user gets deleted, delete their post
 
     def __str__(self):
-        ## dunder str method (double underscore)
-        ## these are known as "magic methods"
         return self.title
+
+    def get_absolute_url(self):
+        return reverse('post-detail', kwargs={'pk': self.pk})

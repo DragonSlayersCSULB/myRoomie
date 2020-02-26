@@ -1,24 +1,22 @@
 {% load static %}
 <!DOCTYPE html>
 <html>
-<head>
-
+  <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
     <link rel="stylesheet" type="text/css" href="{% static 'main/main.css' %}">
-
     {% if title %}
-        <title>Announcement - {{ title }}</title>
+      <title>Announcement - {{ title }}</title>
     {% else %}
-        <title>Announcement</title>
+      <title>Announcement</title>
     {% endif %}
-</head>
-<body>
+  </head>
+  <body>
+
   <header class="site-header">
     <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
       <div class="container">
@@ -30,12 +28,18 @@
           <div class="navbar-nav mr-auto">
             <a class="nav-item nav-link" href="{% url 'main-home' %}">Home</a>
             <a class="nav-item nav-link" href="{% url 'main-about' %}">About</a>
-            <a class="nav-item nav-link" href="{% url 'main-payments' %}">Payments</a>
+            <a class="nav-item nav-link" href="{% url 'main-roommates' %}">Roommates</a>
           </div>
           <!-- Navbar Right Side -->
           <div class="navbar-nav">
-            <a class="nav-item nav-link" href="#">Login</a>
-            <a class="nav-item nav-link" href="{% url 'register' %}">Register</a>
+            {% if user.is_authenticated %}
+            <a class="nav-item nav-link" href="{% url 'post-create' %}">New Announcement</a>
+            <a class="nav-item nav-link" href="{% url 'profile' %}">{{user.username}}</a>
+            <a class="nav-item nav-link" href="{% url 'logout' %}">Logout</a>
+            {% else %}
+              <a class="nav-item nav-link" href="{% url 'login' %}">Login</a>
+              <a class="nav-item nav-link" href="{% url 'register' %}">Register</a>
+            {% endif %}
           </div>
         </div>
       </div>
