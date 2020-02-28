@@ -1,0 +1,104 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>myRoomie Login</title>
+
+	<!-- Google Fonts -->
+	<link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700|Lato:400,100,300,700,900' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="/users/static/users/animate.css">
+	<!-- Custom Stylesheet -->
+	<link rel="stylesheet" href="/users/static/users/style.css">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+</head>
+
+<body>
+    {% block content %}
+	<div class="container">
+		<div class="top">
+			<!--
+			<h1 id="title" class="hidden"><span id="logo">myRoomie <span></span></span></h1>
+			<h2 id="motto" class="hidden"<span id="motto">organizing shared living space</h2>
+			-->
+        </div>
+        <form method="POST">
+            {% csrf_token %}
+		<div class="login-box"><!--login-box animated fadeInUp  -->
+			<div class="box-header">
+				<h2>myRoomie</h2>
+			</div>
+			<label for="username">Username</label>
+			<br/>
+			<input type="text" id="username">
+			<br/>
+			<label for="password">Password</label>
+			<br/>
+			<input type="password" id="password">
+            <br/>
+            <div class="form-group">
+            <button type="submit">Continue</button>
+            </div>
+            <br/>
+            </form>
+			<a href="#"><p class="small">Forgot your password?</p></a>
+		</div>
+    </div>
+    {% endblock content %}
+</body>
+
+<script>
+	$(document).ready(function () {
+    	$('#logo').addClass('animated fadeInDown');
+    	$("input:text:visible:first").focus();
+	});
+	$('#username').focus(function() {
+		$('label[for="username"]').addClass('selected');
+	});
+	$('#username').blur(function() {
+		$('label[for="username"]').removeClass('selected');
+	});
+	$('#password').focus(function() {
+		$('label[for="password"]').addClass('selected');
+	});
+	$('#password').blur(function() {
+		$('label[for="password"]').removeClass('selected');
+	});
+</script>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% load crispy_forms_tags %}
+{% block content %}
+    <div class ="content-section">
+        <form method="POST">
+            {% csrf_token %}
+            <fieldset class ="form-group">
+                <legend class ="border-bottom mb-4">Login</legend>
+                {{ form|crispy }}
+            </fieldset>
+            <div class="form-group">
+                <button class="btn btn-outline-info" type="submit">Login</button>
+            </div>
+        </form>
+        <div class="border-top pt-3">
+            <small class="text-muted">
+                Need an account? <a class="ml2" href="{ % url 'register' % }'">Sign up</a>
+            </small>
+        </div>
+    </div>
+{% endblock content %}

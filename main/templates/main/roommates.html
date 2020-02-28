@@ -1,0 +1,30 @@
+{% extends "main/base.html" %}
+{% block content %}
+    <h1>Roommates</h1>
+    <div class="album py-5 bg-light">
+        <div class="container">
+    
+          <div class ="row">
+            {% for profile in profiles.all %}
+            
+            
+            
+            <div class="col-lg-4 d-flex align-items-stretch">
+                
+                <p></p>
+                <div class="card mb-4 shadow-sm">
+                <img class="card-img-top" src="{{ profile.image.url }}" height=200 width=200>
+                <div class="card-body">
+                  <p class="card-text text-center font-weight-bold">{{ profile.user.first_name }} {{ profile.user.last_name }}</p>
+                  <a href="mailto:{{ profile.user.email }}" class="card-text">{{ profile.user.email }}</a>
+                  <p class="card-text">{{ profile.phone }}</p>
+                  
+                </div>
+              </div>
+              </a>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+{% endblock content %}
