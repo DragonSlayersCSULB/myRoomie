@@ -10,7 +10,7 @@ def newBill(request):
         if form.is_valid():
             form.save()
             username = form.cleaned_data.get('username')
-            messages.success(request, f'Roommate created for {username}!') #show that the request was successful!
+            messages.success(request, f'Bill created for {username}!') #show that the request was successful!
             return redirect('main-home')
     else:
         form = UserRegisterForm() #instantiates an empty form

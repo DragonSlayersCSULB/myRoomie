@@ -4,6 +4,9 @@
 {% block content %}
 <h1>Bills for (date range here)</h1>
 <h2><p class="article-title">date range here?</p></h2>
+<form action="{% url 'new-bill' %}'">
+  <input type="submit" value="Add New Bill">
+</form>
 <div class="row">
   {% for bill in bills %}
   <div class="column">
@@ -11,7 +14,13 @@
       <h3>{{ bill.title }}</h3>
       <p class="list-group-item">${{ bill.amount }}</p>
       <p class="list-group-item">{{ bill.date_posted }}</p>
-      <p class="list-group-item">Paid?: {{ bill.ispaid }}</p>
+      <p class="list-group-item">
+        {% if bill.ispaid %}
+        PAID!
+        {% else %}
+        PAY UP!
+        {% endif %}
+      </p>
       <p class="list-group-item">Pay Now Button</a>
     </div>
   </div>

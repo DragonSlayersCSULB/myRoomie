@@ -6,6 +6,12 @@ from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 
 
+def mainLoginScreen(request):
+    context = {
+        # 'posts': posts
+        'login': Post.objects.all()
+    }
+    return render(request, 'main/mainLoginScreen.html', context)
 
 def home(request):
     context = {
@@ -33,6 +39,9 @@ def bills(request):
     }
     return render(request, 'main/bills.html', context)
 
+class BillCreateView(CreateView):
+    model = Post
+    fields = ['title', 'type', 'due-date', 'amount',]
 
 
 class PostListView(ListView):

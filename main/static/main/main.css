@@ -18,6 +18,38 @@
   padding: 0 10px;
 }
 
+/* make a section of HTML scrollable */
+.scrollable {
+  height: 460px; /* or any value */
+  overflow-y: auto;
+  scrollbar-width: none;
+
+}
+
+.title {
+  color: black;
+  vertical-align: middle;
+  font-size: 2em;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+a.title:hover {
+  color: #FFF;
+  text-decoration: none;
+}
+
+.right-title {
+  color: black;
+  vertical-align: middle;
+  font-size: 1.5em;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+a.right-title:hover {
+  color: #FFF;
+  text-decoration: none;
+}
+
 /* Remove extra left and right margins, due to padding */
 .row {margin: 0 -5px;}
 
@@ -110,7 +142,6 @@ ul {
   background-color: #dedfeb;
   color: black;
   text-align: right;
-  font-weight: bold;
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   padding: 10px 20px;
 }
