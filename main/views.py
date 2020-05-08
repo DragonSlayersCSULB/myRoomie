@@ -69,6 +69,18 @@ def bills(request):
     }
     return render(request, 'main/bills.html', context)
 
+def repairs(request):
+    return render(request, 'main/repairs.html', {'title': 'Repairs'})
+
+def crowdfund(request):
+    return render(request, 'main/crowdfund.html', {'title': 'Crowdfund'})
+
+def calendar(request):
+    return render(request, 'main/calendar.html', {'title': 'Calendar'})
+
+def grocery(request):
+    return render(request, 'main/grocery.html', {'title': 'Grocery'})
+
 class PostListView(ListView):
     model = Post
     template_name = 'main/home.html'
