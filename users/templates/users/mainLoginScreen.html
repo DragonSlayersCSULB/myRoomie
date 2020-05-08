@@ -1,4 +1,4 @@
-{% load crispy_forms_tags %}
+
 {% block content %}
 <html lang="en">
 <head>
@@ -22,49 +22,14 @@
 			<h2 id="motto" class="hidden"<span id="motto">organizing shared living space</h2>
 			-->
 		</div>
-		<div class="login-box animated fadeInUp"><!--login-box animated fadeInUp  -->
-			<div class="box-header">
-				<h2>myRoomie</h2>
-		    <!-- <div class ="content-section"> -->
-        <form method="POST">
-            {% csrf_token %}
-			{% if user.is_authenticated %}
-			<h2>Welcome back</h2>
-			<button class="btn btn-outline-info" href="{% url 'main-home' %}">Continue</button>
-			{% else %}
-			<fieldset class ="form-group">
-                <!-- <legend class ="border-bottom mb-4">Login</legend> -->
-				<div class="form_group">
-                {{ form|crispy }}
-            </fieldset>
-			<div class="form-group">
-				<div class="box-header">
-					<button class="btn btn-outline-info" type="submit">Login</button>
-				</div>
-			</form>
-			<div class="border-top pt-3">
-				<small class="text-muted">
-					Need an account? <a class="ml2" href="{% url 'register' %}"> Sign up</a>
-				</small>
-			{% endif %}
-			</div>
-        </div>
-    </div>
-
-		
-		<!-- <form method = "POST" id = "add_form" action = "{% url 'main-home' %}">
+		<form method = "POST" id = "add_form" action = "{% url 'main-home' %}">
 			{% csrf_token %}
 		<div class="login-box animated fadeInUp"><!--login-box animated fadeInUp  -->
-			<!-- <div class = "form_group">
+			<div class = "form_group">
 			<div class="box-header">
 				<h2>myRoomie</h2>
-				{{ form|crispy }}
-				<button type="submit">Continue!!!!!</button>
-			</div> -->
-
-
-
-			<!-- <label for="username">Username</label>
+			</div>
+			<label for="username">Username</label>
 			<br/>
 			<div class = "input"><input type="text" name="username" required = "required">
 			<br/>
@@ -75,9 +40,8 @@
 			<div class="input"><input type="password" name="password" required="required">
 				</div> <div class="clear"></div></div>
 			<br/>
-			<a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'login' %}">CONTINUEEUEUEUEUE</a>
 			<button type="submit" href="{ % url 'login' % }">Continue</button>
-			<br/> -->
+			<br/>
 			<a href="#"><p class="small">Forgot your password?</p></a>
 		</div>
 		</form>

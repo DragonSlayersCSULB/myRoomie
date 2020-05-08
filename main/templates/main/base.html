@@ -23,7 +23,7 @@
         <div class="mr-sidebar-left w3-bar-block w3-border-right bg-steel" style="display:none" id="leftMenu">
           <button onclick="leftSideClose()" class="w3-bar-item w3-large">Close &times;</button>
           <a href="{% url 'main-about' %}" class="w3-bar-item w3-button">About</a>
-          <a href="{% url 'main-bills' %}" class="w3-bar-item w3-button"><i class="fas fa-file-invoice-dollar"></i> Bills</a>
+          <a href="{% url 'main-bill' %}" class="w3-bar-item w3-button"><i class="fas fa-file-invoice-dollar"></i> Bills</a>
           <a href="#" class="w3-bar-item w3-button"><i class="fas fa-tasks"></i> Tasks / Chores</a>
           <a href="#" class="w3-bar-item w3-button"><i class="fas fa-hand-holding-usd"></i> Crowdfund</a>
           <a href="{% url 'main-roommates' %}" class="w3-bar-item w3-button"><i class="fas fa-user-friends"></i> Roommates</a>
@@ -48,7 +48,7 @@
             {% if user.is_authenticated %}
             <a class ="title" href = "{% url 'profile' %}">{{ user.username }}</a>
             {% else %}
-            WHO?!
+            <a class ="title" href = "{% url 'register' %}">Register</a>
             {% endif %}
             <button class="w3-button w3-xlarge" onclick="rightSideOpen()"><i class="fas fa-user"></i></button>
           </div>
@@ -64,7 +64,7 @@
           <div class="navbar-nav mr-auto">
             <a class="nav-item nav-link" href="{% url 'main-home' %}">Home</a>
             <a class="nav-item nav-link" href="{% url 'main-about' %}">About</a>
-            <a class="nav-item nav-link" href="{% url 'main-bills' %}">Bills</a>
+            <a class="nav-item nav-link" href="{% url 'main-bill' %}">Bills</a>
           </div>
           <!-- Navbar Right Side -->
           <!-- <div class="navbar-nav">

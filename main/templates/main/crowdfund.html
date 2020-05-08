@@ -1,0 +1,91 @@
+{% extends "main/base.html" %}
+{% block content %}
+    <h1>Crowdfund <i class="fa fa-money" style="font-size:48px;color:green"></i></h1>
+    
+
+    <p><button type="button" class="btn btn-primary">Create New Crowdfund Goal >></button></p>
+
+  
+  
+<div class = "scroll">
+
+    <div class="container p-2 my-2 bg-secondary">
+        <h2 style="color:white;">Crowdfund Goals In Progress:</h2>
+    </div>
+
+    
+    <div class="card ">
+        <div class="card-header bg-warning">
+          New Living Room TV
+        </div>
+        <div class="card-body">
+          <p class="card-text">$600 Needed</p>
+          <div class="progress">
+            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
+            aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:40%">
+              $300 Raised
+            </div>
+          </div> 
+        </div>
+      </div>
+
+    
+    
+      <div class="card ">
+        <div class="card-header bg-warning">
+          Outdoor Patio Furniture Set
+        </div>
+        <div class="card-body">
+          <p class="card-text">$400 Needed</p>
+          <div class="progress">
+            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
+            aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:25%">
+              $100 Raised
+            </div>
+          </div> 
+        </div>
+      </div>
+    
+
+
+    <div class="container p-2 my-2 bg-secondary">
+        <h2 style="color:white;">Crowdfund Goals Met:</h2>
+    </div>
+
+    <div class="card ">
+        <div class="card-header bg-success">
+          Outdoor Basketball Hoop
+        </div>
+        <div class="card-body">
+            <p class="card-text">$220 Needed</p>
+            <div class="progress">
+              <div class="progress-bar progress-bar-striped bg-success progress-bar-animated" role="progressbar"
+              aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:100%">
+                $220 Raised (Complete)
+              </div>
+            </div> 
+        </div>
+    </div>  
+
+
+    <div class="card ">
+      <div class="card-header bg-success">
+        Indoor Surround Sound Speakers
+      </div>
+      <div class="card-body">
+          <p class="card-text">$300 Needed</p>
+          <div class="progress">
+            <div class="progress-bar progress-bar-striped bg-success progress-bar-animated" role="progressbar"
+            aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:100%">
+              $300 Raised (Complete)
+            </div>
+          </div> 
+      </div>
+  </div>  
+
+    
+</div>
+
+
+
+{% endblock content %}
