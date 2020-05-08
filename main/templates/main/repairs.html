@@ -1,0 +1,63 @@
+<body>
+    {% extends "main/base.html" %}
+    {% block content %}
+    <h1>Repairs</h1>
+    
+    <p><button type="button" class="btn btn-primary">Submit Repair Request >></button></p>
+
+  
+  
+<div class = "scroll">
+
+    <div class="container p-2 my-2 bg-secondary">
+        <h2 style="color:white;">Pending Repair Requests:</h2>
+    </div>
+
+    
+    <div class="card ">
+        <div class="card-header bg-warning">
+          Garbage Disposal
+        </div>
+        <div class="card-body">
+          <p class="card-text">Garbage disposal can no longer be activated</p>
+          <a href="#" class="btn btn-success">Mark Completed</a>
+        </div>
+      </div>
+
+    <div class="card ">
+        <div class="card-header bg-warning">
+          Shower Drain
+        </div>
+        <div class="card-body">
+          <p class="card-text">Shower is not draining well</p>
+          <a href="#" class="btn btn-success">Mark Completed</a>
+        </div>
+    </div>  
+
+
+    <div class="container p-2 my-2 bg-secondary">
+        <h2 style="color:white;">Completed Repair Requests:</h2>
+    </div>
+
+    <div class="card ">
+        <div class="card-header bg-success">
+          Leak in the Roof
+        </div>
+        <div class="card-body">
+          <p class="card-text">Upstairs roof is leaking due to rain</p>
+        </div>
+    </div>  
+
+
+    <div class="card ">
+        <div class="card-header bg-success">
+          Back door knob broken
+        </div>
+        <div class="card-body">
+          <p class="card-text">Back door cannot be opened, jams</p>
+        </div>
+    </div>  
+</div>
+
+    {% endblock content %}
+</body>

@@ -19,6 +19,11 @@ urlpatterns = [
     path('roommates/', views.roommates, name='main-roommates'),
     path('post/<int:pk>/update/', PostUpdateView.as_view(), name='post-update'),
     path('post/<int:pk>/delete/', PostDeleteView.as_view(), name='post-delete'),
+    path('crowdfund/', views.crowdfund, name='main-crowdfund'),
+    path('repairs/', views.repairs, name='main-repairs'),
+    path('calendar/', views.calendar, name='main-calendar'),
+    path('grocery', views.grocery, name='main-grocery'),
+    path('crowdfund/', views.crowdfund, name='main-crowdfund'),
     
     #path('login/', views.mainLoginScreen, name='mainLoginScreen'),
     path('profile/', views.profile, name='profile'),
