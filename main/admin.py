@@ -1,7 +1,7 @@
 from django.contrib import admin
 from .models import Post
-from .models import Bills
+from .models import Bill
 
 # Register your models here.
 admin.site.register(Post) #pass in the post model
-admin.site.register(Bills) #pass in the bills model
+admin.site.register(Bill) #pass in the bills model

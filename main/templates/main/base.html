@@ -14,11 +14,6 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="{% static 'main/main.css' %}">
 
-    {% if title %}
-        <title>myRoomie - {{ title }}</title>
-    {% else %}
-        <title>myRoomie</title>
-    {% endif %}
 </head>
 <body>
   <header class="site-header">
@@ -28,31 +23,35 @@
         <div class="mr-sidebar-left w3-bar-block w3-border-right bg-steel" style="display:none" id="leftMenu">
           <button onclick="leftSideClose()" class="w3-bar-item w3-large">Close &times;</button>
           <a href="{% url 'main-about' %}" class="w3-bar-item w3-button">About</a>
-          <a href="{% url 'main-bills' %}" class="w3-bar-item w3-button"><i class="fas fa-file-invoice-dollar"></i> Bills</a>
+          <a href="{% url 'main-bill' %}" class="w3-bar-item w3-button"><i class="fas fa-file-invoice-dollar"></i> Bills</a>
           <a href="#" class="w3-bar-item w3-button"><i class="fas fa-tasks"></i> Tasks / Chores</a>
           <a href="#" class="w3-bar-item w3-button"><i class="fas fa-hand-holding-usd"></i> Crowdfund</a>
           <a href="{% url 'main-roommates' %}" class="w3-bar-item w3-button"><i class="fas fa-user-friends"></i> Roommates</a>
-          <a href="#" class="w3-bar-item w3-button"> Calendar</a>
-          <a href="#" class="w3-bar-item w3-button"> Repairs</a>
+          <a href="#" class="w3-bar-item w3-button"><i class="fas fa-calendar-alt"></i> Calendar</a>
+          <a href="#" class="w3-bar-item w3-button"><i class="fas fa-tools"></i> Repairs</a>
           <a href="#" class="w3-bar-item w3-button"><i class="fas fa-shopping-cart"></i> Grocery</a>
           <a href="#" class="w3-bar-item w3-button"> Candy</a>
         </div>
 
-        <button class="w3-button w3-xlarge" onclick="leftSideOpen()">☰</button>
-        <a class="navbar-brand mr-4" font-color="#000000" href="{% url 'main-home' %}">myRoomie</a>
+        <button class="w3-button w3-xlarge" onclick="leftSideOpen()"><i class="fas fa-bars"></i></button>
+        <a class="title" href="{% url 'main-home' %}">myRoomie</a>
         </div>
         <div class="bg-steel">
           <div class="mr-sidebar-right w3-bar-block w3-border-right bg-steel" style="display:none" id="rightMenu">
             <button onclick="rightSideClose()" class="w3-bar-item w3-large">Close &times;</button>
-            <a href="{% url 'profile' %}" class="w3-bar-item w3-button">Account</a>
-            <a href="#" class="w3-bar-item w3-button">Settings</a>
-            <a href="#" class="w3-bar-item w3-button">Drugs</a>
-            <a href="{% url 'logout' %}" class="w3-bar-item w3-button">Logout</a>
+            <a href="{% url 'profile' %}" class="w3-bar-item w3-button">Account <i class="fas fa-user-circle"></i></a>
+            <a href="#" class="w3-bar-item w3-button">Settings <i class="fas fa-user-cog"></i></a>
+            <a href="#" class="w3-bar-item w3-button">Drugs <i class="fas fa-prescription-bottle-alt"></i></a>
+            <a href="{% url 'logout' %}" class="w3-bar-item w3-button">Logout <i class="fas fa-sign-out-alt"></i></a>
           </div>
-
-          <a class="navbar-brand mr-4" font-color="#000000" href="{% url 'login' %}">Login</a>
-          <a class="navbar-brand mr-4" font-color="#000000" href="{% url 'register' %}">Register</a>
-          <button class="w3-button w3-xlarge" onclick="rightSideOpen()">☰</button>
+          <div class ="bg-steel">
+            {% if user.is_authenticated %}
+            <a class ="title" href = "{% url 'profile' %}">{{ user.username }}</a>
+            {% else %}
+            <a class ="title" href = "{% url 'register' %}">Register</a>
+            {% endif %}
+            <button class="w3-button w3-xlarge" onclick="rightSideOpen()"><i class="fas fa-user"></i></button>
+          </div>
         </div>
         </div>
         <!-- Sidebar -->
@@ -65,7 +64,7 @@
           <div class="navbar-nav mr-auto">
             <a class="nav-item nav-link" href="{% url 'main-home' %}">Home</a>
             <a class="nav-item nav-link" href="{% url 'main-about' %}">About</a>
-            <a class="nav-item nav-link" href="{% url 'main-bills' %}">Bills</a>
+            <a class="nav-item nav-link" href="{% url 'main-bill' %}">Bills</a>
           </div>
           <!-- Navbar Right Side -->
           <!-- <div class="navbar-nav">

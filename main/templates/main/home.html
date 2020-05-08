@@ -1,7 +1,6 @@
 
   <div class="container">
   <div class="weather">
-    <p><h2>Hello, Name.</p></h2>
     <p>Todays date is: date here</p>
     <a class="weatherwidget-io" href="https://forecast7.com/en/33d77n118d19/long-beach/?unit=us" data-label_1="LONG BEACH" data-label_2="WEATHER" data-mode="Current" data-days="3" data-theme="pure" >LONG BEACH WEATHER</a>
     <script>
@@ -14,6 +13,7 @@
 
 {% extends "main/base.html" %}
 {% block content %}
+<div class="scrollable">
     {% for post in posts %}
     <article class="media content-section">
       <img class="rounded-circle article-img"  src="{{ post.author.profile.image.url }}">
@@ -27,5 +27,8 @@
       </div>
     </article>
     {% endfor %}
+    <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'post-create' %}">Post New Announcement</a>
+    </div>
 {% endblock content %}
 </div>
+
