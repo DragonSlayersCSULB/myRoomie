@@ -94,7 +94,7 @@ class PostDetailView(DetailView):
 class PostCreateView(LoginRequiredMixin, CreateView):
     model = Post
     fields = ['title','content']
-    success_url = '/' #use this line to return to main page after making an announcement
+    success_url = '/home' #use this line to return to main page after making an announcement
 
     def form_valid(self, form):
         form.instance.author = self.request.user
@@ -103,7 +103,7 @@ class PostCreateView(LoginRequiredMixin, CreateView):
 class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Post
     fields = ['title','content']
-    success_url = '/' #use this line to return to main page after making an announcement
+    success_url = '/home' #use this line to return to main page after making an announcement
 
     def form_valid(self, form):
         form.instance.author = self.request.user
@@ -117,9 +117,9 @@ class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
 
 class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = Post
-    success_url='/'
+    success_url='/home'
     def test_func(self):
-        post = self.get_object()
+        post = self.homeget_object()
         if self.request.user == post.author:
             return True
         return False

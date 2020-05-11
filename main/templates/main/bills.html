@@ -1,37 +1,32 @@
 <body>
-
 {% extends "main/base.html" %}
 <h3>Your personal breakdown of the overhead</h3>
 {% block content %}
-<h1>Bills and Payments</h1>
-<a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'bill-create' %}">Add New Bill</a>
+<h1>Bills for (date range here)</h1>
+<h2><p class="article-title">date range here?</p></h2>
+<form action="{% url 'bill-create' %}'">
+  <input type="submit" value="Add New Bill">
+</form>
 <div class="row">
   {% for bill in bills %}
   <div class="column">
     <div class="card">
       <h3>{{ bill.title }}</h3>
       <p class="list-group-item">${{ bill.amount }}</p>
-
-      <p class="list-group-item">{{ bill.date_posted}}</p>
-      {% if bill.ispaid %}
-      <p class="list-group-item" style="background-color:lightgreen;">Payment of ${{bill.amount}} complete!</p>
-      {% endif %}
-      {% if bill.ispaid is False %}
-      <p class="list-group-item" style="background-color:indianred;">Unpaid</p>
-      <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-      <input type="hidden" name="cmd" value="_donations" />
-      <input type="hidden" name="business" value="6N4APXQSEL5E6" />
-      <input type="hidden" name="item_name" value="{{bill.title}} payment for roommate Claude Daniel" />
-      <input type="hidden" name="currency_code" value="USD" />
-      <input type="image" src="https://i.ibb.co/Yy6GBy8/Make-a-Payment-button.png" border="0" padding-top="25px" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
-      <img alt="" border="8" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1" />
-      </form>
-      {% endif %}
+      <p class="list-group-item">{{ bill.date_posted }}</p>
+      <p class="list-group-item">
+        {% if bill.ispaid %}
+        PAID!
+        {% else %}
+        PAY UP!
+        {% endif %}
+      </p>
+      <p class="list-group-item">Pay Now Button</a>
     </div>
   </div>
   {% endfor %}
 </div>
-
 <div class="boxed">Total: { bill amount }</div>
 {% endblock content %}
 </body>
+
