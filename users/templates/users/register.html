@@ -1,4 +1,8 @@
 {% extends "main/base.html" %}
+
+{% load socialaccount %}
+{% providers_media_js %}
+
 {% load crispy_forms_tags %}
 {% block content %}
     <div class ="content-section">
@@ -13,6 +17,9 @@
             </div>
         </form>
         <div class="border-top pt-3">
+            <div>
+                <a href="{% provider_login_url "facebook" method="oauth2" %}">Facebook Connect</a>
+            </div>
             <small class="text-muted">
                 Already have an account? <a class="ml2" href="{ % url 'login' % }">Sign in</a>
             </small>

@@ -1,5 +1,9 @@
 
 {% block content %}
+
+{% load socialaccount %}
+{% providers_media_js %}
+
 <html lang="en">
 <head>
 	<meta charset="utf-8">
@@ -42,6 +46,7 @@
 			<br/>
 			<button type="submit" href="{ % url 'login' % }">Continue</button>
 			<br/>
+			<a href="{% provider_login_url "facebook" method="oauth2" %}">Facebook Connect</a>
 			<a href="#"><p class="small">Forgot your password?</p></a>
 		</div>
 		</form>

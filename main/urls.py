@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import path, include
 from django.contrib.auth import views as auth_views
 from .views import PostListView, PostDetailView, PostCreateView, PostUpdateView, PostDeleteView, BillListView, BillDetailView, BillCreateView, BillUpdateView, BillDeleteView
 from . import views
@@ -28,4 +28,6 @@ urlpatterns = [
     #path('login/', views.mainLoginScreen, name='mainLoginScreen'),
     path('profile/', views.profile, name='profile'),
     path('logout/', views.logout, name='logout'),
+    
+    path('tasks/', include('tasks.urls'), name='tasks'),
 ]
