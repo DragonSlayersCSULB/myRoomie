@@ -7,6 +7,13 @@ class Profile(models.Model):
     image = models.ImageField(default='default.jpg', upload_to='profile_pics')
     phone = models.CharField(default='(562) 985-5515', max_length=15)
 
+    LOCATION_OPTIONS = (
+        ('Home', 'h'),
+        ('School', 's'),
+        ('Gym', 'g')
+    )
+    location = models.CharField(max_length=9, choices=LOCATION_OPTIONS, default='Home')
+
     def __str__(self):
         return f'{self.user.username} Profile'
 

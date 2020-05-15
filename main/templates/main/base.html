@@ -1,4 +1,16 @@
 {% load static %}
+
+<style>
+    .alignleft {
+    float: left;
+    border-right : 100px;
+  }
+  .alignright {
+    float: right;
+    border-left: 100px;
+  }
+</style>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,16 +44,15 @@
           <a href="{% url 'main-grocery' %}" class="w3-bar-item w3-button"><i class="fas fa-shopping-cart"></i> Grocery</a>
           <a href="#" class="w3-bar-item w3-button"> Candy</a>
         </div>
-
-        <button class="w3-button w3-xlarge" onclick="leftSideOpen()"><i class="fas fa-bars"></i></button>
-        <a class="title" href="{% url 'main-home' %}">myRoomie</a>
+          <button class="w3-button w3-xlarge" onclick="leftSideOpen()"><i class="fas fa-bars"></i></button>
+          <a class="title" href="{% url 'main-home' %}">myRoomie</a>
         </div>
         <div class="bg-steel">
           <div class="mr-sidebar-right w3-bar-block w3-border-right bg-steel" style="display:none" id="rightMenu">
             <button onclick="rightSideClose()" class="w3-bar-item w3-large">Close &times;</button>
             <a href="{% url 'profile' %}" class="w3-bar-item w3-button">Account <i class="fas fa-user-circle"></i></a>
             <a href="#" class="w3-bar-item w3-button">Settings <i class="fas fa-user-cog"></i></a>
-            <a href="#" class="w3-bar-item w3-button">Drugs <i class="fas fa-prescription-bottle-alt"></i></a>
+            <!--<a href="#" class="w3-bar-item w3-button">Drugs <i class="fas fa-prescription-bottle-alt"></i></a>-->
             <a href="{% url 'logout' %}" class="w3-bar-item w3-button">Logout <i class="fas fa-sign-out-alt"></i></a>
           </div>
           <div class ="bg-steel">
@@ -87,24 +98,41 @@
           {% endif %}
           {% block content %}{% endblock %}
         </div>
+
+
+
+
         <div class="col-md-4">
           <div class="content-section">
-            <h3>Our Sidebar</h3>
-            <p class='text-muted'>This will most likely have a chatroom
+            <h3 align="center">Roommate Tracker</h3>
+            <p class='text-muted' align="center">Last updated locations
               <ul class="list-group">
-                <li class="list-group-item list-group-item-light">Latest Posts</li>
-                <li class="list-group-item list-group-item-light">Announcements</li>
-                <li class="list-group-item list-group-item-light">Calendars</li>
-                <li class="list-group-item list-group-item-light">etc</li>
+                {% for profile in profiles %}
+                
+                  
+                  <div id="textbox">
+                    <p class="alignleft">{{ profile.user.first_name }}</p>
+                    <p class="alignright">{{ profile.location }}</p>
+                  </div>
+                {% endfor %}
               </ul>
             </p>
           </div>
         </div>
+
+
+
       </div>
     </main>
+
+
+
     <div class="footer">
       <p>Organizing shared living space.</p>
     </div>
+
+
+
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="../js/weather.js"></script>
