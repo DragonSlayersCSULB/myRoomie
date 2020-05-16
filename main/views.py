@@ -46,10 +46,17 @@ def logout(request):
 def home(request):
     context = {
         # 'posts': posts
-        'posts': Post.objects.all()
+        'posts': Post.objects.all(),
+        'profiles':Profile.objects.all()
     }
     return render(request, 'main/home.html', context)
 
+
+def base(request):
+    context = {
+        'profiles':Profile.objects.all()
+    }
+    return render(request, 'main/base.html', context)
 
 def about(request):
     return render(request, 'main/about.html', {'title': 'About'})
@@ -85,7 +92,7 @@ class PostListView(ListView):
     model = Post
     template_name = 'main/home.html'
     context_object_name = 'posts'
-    ordering = ['-date_posted']
+    ordering = ['+date_posted']
     #<app>/<model>_<viewtype>.html
 
 class PostDetailView(DetailView):
@@ -168,3 +175,6 @@ class BillDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
         if self.request.user == post.author:
             return True
         return False
+    
+    
+    

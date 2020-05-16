@@ -2,7 +2,37 @@
 {% block content %}
 <h1>Grocery</h1>
 
+<style>
+
+	
+
+	.item-row{
+		background-color: rgb(183, 184, 202);
+		margin: 10px;
+		padding: 20px;
+		border-radius: 3px;
+		color: #fff;
+		font-size: 16px;
+		box-shadow: 0px -1px 10px -4px rgba(0,0,0,0.75);
+	}
+
+	.item-row-late{
+		background-color: rgb(226, 59, 59);
+		margin: 10px;
+		padding: 20px;
+		border-radius: 3px;
+		color: #fff;
+		font-size: 16px;
+		box-shadow: 0px -1px 10px -4px rgba(0,0,0,0.75);
+	}
+
+
+</style>
+
+
 <script>
+
+
 var shopper = {
   items : [], // Array of current shopping list
   add : function (evt) {
@@ -127,6 +157,8 @@ window.addEventListener("load", function () {
   shopper.load();
   document.getElementById("shop-add").addEventListener("submit", shopper.add);
 });
+
+
 </script>
 
 <body>
