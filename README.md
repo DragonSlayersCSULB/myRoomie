@@ -1,5 +1,5 @@
 # myRoomie
-Desktop web application for roommates to organize a shared living space.
+Desktop web application for roommates to organize a shared living space
 
 ## Authors
 
